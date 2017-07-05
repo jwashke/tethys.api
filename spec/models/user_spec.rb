@@ -23,7 +23,7 @@ RSpec.describe User, type: :model do
       it 'returns nil' do
         user = create(:user)
 
-        returned_user = User.find_by_credentials(user.email, "wrongpassword")
+        returned_user = User.find_by_credentials(user.email, 'wrongpassword')
 
         expect(returned_user).to be_nil
       end
