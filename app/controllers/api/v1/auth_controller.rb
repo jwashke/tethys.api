@@ -2,11 +2,14 @@ module Api
   module V1
     class AuthController < Api::ApiController
       def create
-        user = User.find_by_credentials(user_params[:email], user_params[:password])
+        user = User.find_by_credentials(
+          user_params[:email],
+          user_params[:password]
+        )
         if user
           render json: { auth_token: user.generate_auth_token }
         else
-          render json: { error: 'Invalid email or password' }, status: :unauthorized
+          render json: { error: 'Invalid credentials' }, status: :unauthorized
         end
       end
 

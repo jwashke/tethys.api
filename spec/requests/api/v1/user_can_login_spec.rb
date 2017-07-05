@@ -44,7 +44,7 @@ RSpec.describe 'POST /api/v1/auth' do
       parsed_response = JSON.parse(response.body, symbolize_names: true)
 
       expect(response.status).to eq(401)
-      expect(parsed_response[:error]).to eq('Invalid email or password')
+      expect(parsed_response[:error]).to eq('Invalid credentials')
     end
   end
 end
